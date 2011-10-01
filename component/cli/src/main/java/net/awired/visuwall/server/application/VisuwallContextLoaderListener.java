@@ -16,23 +16,16 @@
 
 package net.awired.visuwall.server.application;
 
-import javax.servlet.ServletContextEvent;
-
-import net.awired.visuwall.core.application.common.ApplicationHelper;
-
-import org.fusesource.jansi.AnsiConsole;
-import org.springframework.web.context.ContextLoaderListener;
-
-public class VisuwallContextLoaderListener extends ContextLoaderListener {
-
-	@Override
-	public void contextInitialized(ServletContextEvent event) {
-		AnsiConsole.systemInstall();
-		String home = ApplicationHelper.findHomeDir();
-		System.setProperty(ApplicationHelper.HOME_KEY, home);
-
-		ApplicationHelper.changeLogLvl();
-		super.contextInitialized(event);
-	}
-
-}
+//public class VisuwallContextLoaderListener extends ContextLoaderListener {
+//
+//	@Override
+//	public void contextInitialized(ServletContextEvent event) {
+//		AnsiConsole.systemInstall();
+//		String home = ApplicationHelper.findHomeDir();
+//		System.setProperty(ApplicationHelper.HOME_KEY, home);
+//
+//		ApplicationHelper.changeLogLvl();
+//		super.contextInitialized(event);
+//	}
+//
+//}

@@ -28,7 +28,6 @@ import net.awired.ajsl.web.service.interfaces.CssService;
 import net.awired.ajsl.web.service.interfaces.JsService;
 import net.awired.ajsl.web.service.interfaces.JsonService;
 import net.awired.visuwall.core.business.service.WallHolderService;
-import net.awired.visuwall.server.application.VisuwallApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -42,8 +41,8 @@ public class MainController {
 
     private static final String ROOT_CONTEXT = "/index.html";
 
-    @Autowired
-    VisuwallApplication visuwallApplication;
+    //    @Autowired
+    //    VisuwallApplication visuwallApplication;
 
     @Autowired
     CssService cssService;
@@ -84,7 +83,8 @@ public class MainController {
         modelMap.put("jsData", jsonService.serialize(jsData));
         modelMap.put("jsLinks", jsService.getJsLinks("res/", jsMap));
         modelMap.put("cssLinks", cssService.getCssLinks("res/"));
-        modelMap.put("version", visuwallApplication.getVersion());
+        //TODO
+        //        modelMap.put("version", visuwallApplication.getVersion());
         return new ModelAndView("index", modelMap);
     }
 

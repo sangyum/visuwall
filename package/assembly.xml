@@ -14,6 +14,7 @@
 		<dependencySet>
 			<excludes>
 				<exclude>org.apache.karaf:apache-karaf</exclude>
+				<exclude>net.awired.bootstrap:bootstrap</exclude>
 			</excludes>
 			<outputDirectory>/WEB-INF/karaf/deploy</outputDirectory>
 			<useProjectArtifact>false</useProjectArtifact>

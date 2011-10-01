@@ -4,7 +4,7 @@
 <web-app id="Visuwall">
 
     <listener>
-        <listener-class>org.apache.felix.http.samples.bridge.StartupListener</listener-class>
+        <listener-class>net.awired.visuwall.StartupListener</listener-class>
     </listener>
 
     <listener>

@@ -56,6 +56,7 @@
 
 
 
+		<felix.version>2.2.0</felix.version>
 		<karaf.version>2.2.2</karaf.version>
 		<guava.version>r09</guava.version>
 		<junit.version>4.8.2</junit.version>
