@@ -10,24 +10,19 @@
 	</formats>
 	<includeBaseDirectory>false</includeBaseDirectory>
 
-	<moduleSets>
-		<moduleSet>
-			<useAllReactorProjects>true</useAllReactorProjects>
+	<dependencySets>
+		<dependencySet>
 			<excludes>
-				<exclude>net.awired.visuwall:visuwall-package</exclude>
+				<exclude>org.apache.karaf:apache-karaf</exclude>
 			</excludes>
-			<binaries>
-				<unpack>false</unpack>
-				<dependencySets>
-					<dependencySet>
-						<unpack>false</unpack>
-						<!-- <scope>runtime</scope> -->
-						<outputDirectory>/WEB-INF/karaf/deploy</outputDirectory>
-						<useTransitiveDependencies>true</useTransitiveDependencies>
-						<useTransitiveFiltering>true</useTransitiveFiltering>
-					</dependencySet>
-				</dependencySets>
-			</binaries>
-		</moduleSet>
-	</moduleSets>
+			<outputDirectory>/WEB-INF/karaf/deploy</outputDirectory>
+			<useProjectArtifact>false</useProjectArtifact>
+			<useProjectAttachments>true</useProjectAttachments>
+			<useStrictFiltering>true</useStrictFiltering>
+			<scope>provided</scope>
+			<useTransitiveDependencies>true</useTransitiveDependencies>
+			<useTransitiveFiltering>true</useTransitiveFiltering>
+		</dependencySet>
+	</dependencySets>
+
 </assembly>

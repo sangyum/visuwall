@@ -25,20 +25,18 @@
 	</parent>
 
 	<modules>
-		<module>component/domain</module>
-		<module>component/persistence</module>
-		<module>component/core</module>
-		<module>component/cli</module>
-		<module>component/web</module>
 		<module>component/api</module>
-		<module>component/osgi</module>
+		<module>component/cli</module>
+		<module>component/core</module>
+		<module>component/domain</module>
 		<!-- <module>component/it</module> -->
+		<module>component/persistence</module>
+		<module>component/web</module>
 
-
-		<module>plugins/sonar-plugin</module>
-		<module>plugins/hudson-plugin</module>
 		<module>plugins/bamboo-plugin</module>
+		<module>plugins/hudson-plugin</module>
 		<module>plugins/jenkins-plugin</module>
+		<module>plugins/sonar-plugin</module>
 		<module>plugins/teamcity-plugin</module>
 
 		<module>themes/basic</module>
@@ -89,7 +87,7 @@
 		<developer>
 			<id>n0rad</id>
 			<name>Arnaud Lemaire</name>
-			<email>dev at norad dot fr</email>
+			<email>dev@norad.fr</email>
 		</developer>
 	</developers>
 
@@ -105,42 +103,38 @@
 			<!-- visuwall core modules -->
 			<dependency>
 				<groupId>net.awired.visuwall</groupId>
-				<artifactId>visuwall-domain</artifactId>
+				<artifactId>visuwall-component-domain</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>net.awired.visuwall</groupId>
-				<artifactId>visuwall-persistence</artifactId>
+				<artifactId>visuwall-component-persistence</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>net.awired.visuwall</groupId>
-				<artifactId>visuwall-core</artifactId>
+				<artifactId>visuwall-component-core</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>net.awired.visuwall</groupId>
-				<artifactId>visuwall-web</artifactId>
+				<artifactId>visuwall-component-web</artifactId>
+				<version>${project.version}</version>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>net.awired.visuwall</groupId>
+				<artifactId>visuwall-component-plugin-api</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>net.awired.visuwall</groupId>
-				<artifactId>visuwall-plugin-api</artifactId>
+				<artifactId>visuwall-component-cli</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>net.awired.visuwall</groupId>
-				<artifactId>visuwall-cli</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>net.awired.visuwall</groupId>
-				<artifactId>visuwall-it</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>net.awired.visuwall</groupId>
-				<artifactId>visuwall-osgi</artifactId>
+				<artifactId>visuwall-component-it</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 
@@ -168,6 +162,18 @@
 			<dependency>
 				<groupId>net.awired.visuwall</groupId>
 				<artifactId>visuwall-plugin-jenkins</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<!-- Themes -->
+			<dependency>
+				<groupId>net.awired.visuwall</groupId>
+				<artifactId>visuwall-theme-visuspace</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.awired.visuwall</groupId>
+				<artifactId>visuwall-theme-basic</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 

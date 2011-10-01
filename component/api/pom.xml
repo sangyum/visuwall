@@ -11,8 +11,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>visuwall-plugin-api</artifactId>
-	<name>Visuwall - Plugin API</name>
+	<artifactId>visuwall-component-plugin-api</artifactId>
+	<name>Visuwall - Component - Plugin API</name>
 
 	<parent>
 		<groupId>net.awired.visuwall</groupId>
@@ -20,6 +20,7 @@
 		<version>0.3-SNAPSHOT</version>
 		<relativePath>../../</relativePath>
 	</parent>
+
 
 	<dependencies>
 		<dependency>

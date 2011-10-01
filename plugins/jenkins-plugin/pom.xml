@@ -14,7 +14,7 @@
 	<artifactId>visuwall-plugin-jenkins</artifactId>
 	<packaging>jar</packaging>
 
-	<name>Visuwall - Plugin Jenkins</name>
+	<name>Visuwall - Plugin - Jenkins</name>
 
 	<parent>
 		<groupId>net.awired.visuwall</groupId>
@@ -23,10 +23,11 @@
 		<relativePath>../../</relativePath>
 	</parent>
 
+
 	<dependencies>
 		<dependency>
 			<groupId>net.awired.visuwall</groupId>
-			<artifactId>visuwall-plugin-api</artifactId>
+			<artifactId>visuwall-component-plugin-api</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>net.awired.clients</groupId>

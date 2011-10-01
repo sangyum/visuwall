@@ -14,7 +14,7 @@
 	<artifactId>visuwall-plugin-bamboo</artifactId>
 	<packaging>jar</packaging>
 
-	<name>Visuwall - Plugin Bamboo</name>
+	<name>Visuwall - Plugin - Bamboo</name>
 
 	<parent>
 		<groupId>net.awired.visuwall</groupId>
@@ -22,6 +22,7 @@
 		<version>0.3-SNAPSHOT</version>
 		<relativePath>../../</relativePath>
 	</parent>
+
 
 	<dependencies>
 		<dependency>
@@ -32,7 +33,7 @@
 		</dependency>
 		<dependency>
 			<groupId>net.awired.visuwall</groupId>
-			<artifactId>visuwall-plugin-api</artifactId>
+			<artifactId>visuwall-component-plugin-api</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>net.awired.clients</groupId>

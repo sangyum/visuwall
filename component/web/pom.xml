@@ -12,10 +12,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>visuwall-web</artifactId>
+	<artifactId>visuwall-component-web</artifactId>
 	<packaging>war</packaging>
 
-	<name>Visuwall - Web</name>
+	<name>Visuwall - Component - Web</name>
 
 	<parent>
 		<groupId>net.awired.visuwall</groupId>
@@ -33,11 +33,11 @@
 	<dependencies>
 		<dependency>
 			<groupId>net.awired.visuwall</groupId>
-			<artifactId>visuwall-core</artifactId>
+			<artifactId>visuwall-component-core</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>net.awired.visuwall</groupId>
-			<artifactId>visuwall-plugin-api</artifactId>
+			<artifactId>visuwall-component-plugin-api</artifactId>
 		</dependency>
 
 		<dependency>
@@ -52,16 +52,10 @@
 		<!-- <version>${client-bean-validation.version}</version> -->
 		<!-- </dependency> -->
 
-		<dependency>
-			<groupId>net.awired.visuwall</groupId>
-			<artifactId>visuwall-osgi</artifactId>
-			<scope>provided</scope>
-		</dependency>
-
 		<!-- runnable war -->
 		<dependency>
 			<groupId>net.awired.visuwall</groupId>
-			<artifactId>visuwall-cli</artifactId>
+			<artifactId>visuwall-component-cli</artifactId>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -200,27 +194,27 @@
 			</plugin>
 
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.2.1</version>
-				<executions>
-					<execution>
-						<id>aggregate</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-						<configuration>
-							<descriptor>src/main/assembly/default.xml</descriptor>
-						</configuration>
-					</execution>
-				</executions>
-				<configuration>
-					<attach>false</attach>
-					<appendAssemblyId>false</appendAssemblyId>
-				</configuration>
-			</plugin>
+			<!-- <plugin> -->
+			<!-- <groupId>org.apache.maven.plugins</groupId> -->
+			<!-- <artifactId>maven-assembly-plugin</artifactId> -->
+			<!-- <version>2.2.1</version> -->
+			<!-- <executions> -->
+			<!-- <execution> -->
+			<!-- <id>aggregate</id> -->
+			<!-- <phase>prepare-package</phase> -->
+			<!-- <goals> -->
+			<!-- <goal>single</goal> -->
+			<!-- </goals> -->
+			<!-- <configuration> -->
+			<!-- <descriptor>src/main/assembly/default.xml</descriptor> -->
+			<!-- </configuration> -->
+			<!-- </execution> -->
+			<!-- </executions> -->
+			<!-- <configuration> -->
+			<!-- <attach>false</attach> -->
+			<!-- <appendAssemblyId>false</appendAssemblyId> -->
+			<!-- </configuration> -->
+			<!-- </plugin> -->
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -297,7 +291,7 @@
 						</goals>
 						<configuration>
 							<tasks>
-								<delete dir="${basedir}/src/main/webapp/WEB-INF/karaf"/>
+								<delete dir="${basedir}/src/main/webapp/WEB-INF/karaf" />
 							</tasks>
 						</configuration>
 					</execution>
@@ -373,8 +367,7 @@
 								</goals>
 								<configuration>
 									<tasks>
-										<copy
-											todir="${basedir}/src/main/webapp/WEB-INF/karaf">
+										<copy todir="${basedir}/src/main/webapp/WEB-INF/karaf">
 											<fileset
 												dir="${project.build.directory}/${project.build.finalName}/WEB-INF/karaf" />
 										</copy>

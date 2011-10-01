@@ -28,7 +28,7 @@
 		<!-- Runnable WAR -->
 		<dependency>
 			<groupId>net.awired.visuwall</groupId>
-			<artifactId>visuwall-cli</artifactId>
+			<artifactId>visuwall-component-cli</artifactId>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -69,6 +69,77 @@
 			<version>2.5</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<!-- OSGI deploy bundles -->
+		<dependency>
+			<groupId>net.awired.visuwall</groupId>
+			<artifactId>visuwall-component-plugin-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.awired.visuwall</groupId>
+			<artifactId>visuwall-component-core</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.awired.visuwall</groupId>
+			<artifactId>visuwall-component-domain</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.awired.visuwall</groupId>
+			<artifactId>visuwall-component-persistence</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.awired.visuwall</groupId>
+			<artifactId>visuwall-component-web</artifactId>
+			<scope>provided</scope>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>net.awired.visuwall</groupId>
+			<artifactId>visuwall-theme-visuspace</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.awired.visuwall</groupId>
+			<artifactId>visuwall-theme-basic</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.awired.visuwall</groupId>
+			<artifactId>visuwall-plugin-teamcity</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.awired.visuwall</groupId>
+			<artifactId>visuwall-plugin-sonar</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.awired.visuwall</groupId>
+			<artifactId>visuwall-plugin-jenkins</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.awired.visuwall</groupId>
+			<artifactId>visuwall-plugin-hudson</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.awired.visuwall</groupId>
+			<artifactId>visuwall-plugin-bamboo</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+
+
+
+
+
+
+
 
 
 		<!-- <dependency> -->
@@ -193,7 +264,7 @@
 							<artifactItems>
 								<artifactItem>
 									<groupId>net.awired.visuwall</groupId>
-									<artifactId>visuwall-cli</artifactId>
+									<artifactId>visuwall-component-cli</artifactId>
 									<version>${project.version}</version>
 									<overWrite>false</overWrite>
 									<outputDirectory>${project.build.directory}/${project.build.finalName}/META-INF/lib</outputDirectory>
@@ -278,21 +349,6 @@
 									<fileset
 										dir="${project.build.directory}/karaf/WEB-INF/apache-karaf-${karaf.version}" />
 								</move>
-							</tasks>
-						</configuration>
-					</execution>
-					<execution>
-						<id>clean-assembly-bug</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<tasks>
-								<delete
-									file="${project.build.directory}/${project.build.finalName}/*.jar" />
-								<delete
-									file="${project.build.directory}/${project.build.finalName}/*.war" />
 							</tasks>
 						</configuration>
 					</execution>

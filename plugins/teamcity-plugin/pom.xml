@@ -14,7 +14,7 @@
 	<artifactId>visuwall-plugin-teamcity</artifactId>
 	<packaging>jar</packaging>
 
-	<name>Visuwall - Plugin TeamCity</name>
+	<name>Visuwall - Plugin - TeamCity</name>
 
 	<parent>
 		<groupId>net.awired.visuwall</groupId>
@@ -23,6 +23,7 @@
 		<relativePath>../../</relativePath>
 	</parent>
 
+
 	<dependencies>
 		<dependency>
 			<groupId>net.awired.clients</groupId>
@@ -30,7 +31,7 @@
 		</dependency>
 		<dependency>
 			<groupId>net.awired.visuwall</groupId>
-			<artifactId>visuwall-plugin-api</artifactId>
+			<artifactId>visuwall-component-plugin-api</artifactId>
 		</dependency>
 
 		<dependency>
@@ -76,6 +77,7 @@
 					</instructions>
 				</configuration>
 			</plugin>
+
 
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
