@@ -11,8 +11,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>visuwall-osgi</artifactId>
-	<name>Visuwall - Osgi</name>
+	<groupId>net.awired.visuwall.theme</groupId>
+	<artifactId>visuwall-theme-basic</artifactId>
+	<packaging>jar</packaging>
+
+	<name>Visuwall - Theme - Basic</name>
 
 	<parent>
 		<groupId>net.awired.visuwall</groupId>
@@ -23,30 +26,26 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>net.awired.visuwall</groupId>
-			<artifactId>visuwall-plugin-api</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>net.awired.visuwall</groupId>
-			<artifactId>visuwall-plugin-bamboo</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>net.awired.visuwall</groupId>
-			<artifactId>visuwall-plugin-sonar</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>net.awired.visuwall</groupId>
-			<artifactId>visuwall-plugin-hudson</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>net.awired.visuwall</groupId>
-			<artifactId>visuwall-plugin-teamcity</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>net.awired.visuwall</groupId>
-			<artifactId>visuwall-plugin-jenkins</artifactId>
+			<groupId>org.apache.felix</groupId>
+<!-- 			org.apache.felix.http.bundle -->
+			<artifactId>org.apache.felix.http.jetty</artifactId>
+			<version>2.2.0</version>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Bundle-Activator>net.awired.visuwall.theme.basic.BasicThemeActivator</Bundle-Activator>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

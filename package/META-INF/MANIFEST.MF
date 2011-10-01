@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Export-Package: org.apache.felix.http.samples.bridge;uses:="javax.serv
+ let,org.apache.felix.framework,org.osgi.framework";version="0.3.0.SNA
+ PSHOT"
+Built-By: n0
+Tool: Bnd-1.43.0
+Bundle-Name: Visuwall - Package
+Created-By: Apache Maven Bundle Plugin
+Bundle-Vendor: Awired Network
+Build-Jdk: 1.6.0_26
+Bundle-Version: 0.3.0.SNAPSHOT
+Bnd-LastModified: 1317427439516
+Bundle-ManifestVersion: 2
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-Description: Web application showing build and quality states o
+ f Projects in a very visual Wall
+Import-Package: javax.servlet;version="[2.5,3)",org.apache.felix.frame
+ work,org.osgi.framework;version="[1.5,2)"
+Bundle-DocURL: http://awired.net/
+Bundle-SymbolicName: net.awired.visuwall.package
+

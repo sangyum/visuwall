@@ -22,6 +22,7 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import javax.persistence.EntityNotFoundException;
 import javax.persistence.Query;
 import net.awired.visuwall.core.business.process.WallProcess;
 import net.awired.visuwall.core.exception.NotFoundException;
@@ -102,8 +103,8 @@ public class WallHolderServiceTest {
         assertNotNull(findwall);
     }
 
-    @Test(expected = NotFoundException.class)
-    public void should_throw_exception_when_searching_inexistant_wall() throws NotFoundException {
+    @Test(expected = EntityNotFoundException.class)
+    public void should_throw_exception_when_searching_inexistant_wall() throws EntityNotFoundException {
         wallHolderService.find("not.exist");
     }
 

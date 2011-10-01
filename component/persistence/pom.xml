@@ -11,8 +11,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>visuwall-core</artifactId>
-	<name>Visuwall - Core</name>
+	<artifactId>visuwall-persistence</artifactId>
+	<name>Visuwall - Persitence</name>
 
 	<parent>
 		<groupId>net.awired.visuwall</groupId>
@@ -23,22 +23,6 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>net.awired.aclm</groupId>
-			<artifactId>aclm</artifactId>
-			<version>0.2-SNAPSHOT</version>
-		</dependency>
-
-		<dependency>
-			<groupId>net.awired.ajsl</groupId>
-			<artifactId>ajsl-core</artifactId>
-			<version>${ajsl.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>net.awired.visuwall</groupId>
-			<artifactId>visuwall-persistence</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>net.awired.visuwall</groupId>
 			<artifactId>visuwall-plugin-api</artifactId>
 		</dependency>
@@ -47,34 +31,65 @@
 			<artifactId>visuwall-domain</artifactId>
 		</dependency>
 
-		<!-- OSGI -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.apache.felix</groupId> -->
-<!-- 			<artifactId>org.apache.felix.framework</artifactId> -->
-<!-- 			<version>3.2.2</version> -->
-<!-- 		</dependency> -->
 		<dependency>
-			<groupId>org.apache.karaf</groupId>
-			<artifactId>org.apache.karaf.main</artifactId>
-			<version>${karaf.version}</version>
+			<groupId>net.awired.ajsl</groupId>
+			<artifactId>ajsl-persistence</artifactId>
+			<version>${ajsl.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.karaf.jaas</groupId>
-			<artifactId>org.apache.karaf.jaas.boot</artifactId>
-			<version>${karaf.version}</version>
-		</dependency>
-		
 
-		<dependency>
-			<groupId>org.apache.felix</groupId>
-			<artifactId>org.apache.felix.main</artifactId>
-			<version>3.2.2</version>
-		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.context</artifactId>
+			<artifactId>spring-orm</artifactId>
 			<version>${spring.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- DB -->
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>persistence-api</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>3.4.0.GA</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>slf4j-api</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>xml-apis</artifactId>
+					<groupId>xml-apis</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>1.8.0.10</version>
+		</dependency>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib-nodep</artifactId>
+			<version>2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>4.2.0.Final</version>
 		</dependency>
 
 
@@ -88,18 +103,6 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
 			<version>1.6.1</version>
-		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>0.9.26</version>
-		</dependency>
-
-		<!-- json -->
-		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-mapper-asl</artifactId>
-			<version>${jackson.version}</version>
 		</dependency>
 
 		<!-- Test -->

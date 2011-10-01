@@ -22,8 +22,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import javax.annotation.PostConstruct;
+import javax.persistence.EntityNotFoundException;
 import net.awired.visuwall.core.business.process.WallProcess;
-import net.awired.visuwall.core.exception.NotFoundException;
 import net.awired.visuwall.core.persistence.dao.WallDAO;
 import net.awired.visuwall.core.persistence.entity.Wall;
 import org.slf4j.Logger;
@@ -72,11 +72,11 @@ public class WallHolderService implements WallDAO {
     }
 
     @Override
-    public Wall find(String wallName) throws NotFoundException {
+    public Wall find(String wallName) throws EntityNotFoundException {
         Preconditions.checkNotNull(wallName, "wallName");
         Wall wall = WALLS.get(wallName);
         if (wall == null) {
-            throw new NotFoundException("Wall with name : " + wallName + " not found");
+            throw new EntityNotFoundException("Wall with name : " + wallName + " not found");
         }
         return wall;
     }
@@ -106,7 +106,7 @@ public class WallHolderService implements WallDAO {
             wall.close();
             WALLS.remove(wallName);
             wallDAO.deleteWall(wallName);
-        } catch (NotFoundException e) {
+        } catch (EntityNotFoundException e) {
             LOG.warn("No wall found to delete : " + wallName);
         }
     }

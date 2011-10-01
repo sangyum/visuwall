@@ -30,7 +30,7 @@
 		</dependency>
 		<dependency>
 			<groupId>net.awired.visuwall</groupId>
-			<artifactId>visuwall-api</artifactId>
+			<artifactId>visuwall-plugin-api</artifactId>
 		</dependency>
 
 		<dependency>

@@ -11,9 +11,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>net.awired.visuwall</groupId>
-	<artifactId>visuwall-api</artifactId>
-	<name>Visuwall - API</name>
+	<artifactId>visuwall-plugin-api</artifactId>
+	<name>Visuwall - Plugin API</name>
 
 	<parent>
 		<groupId>net.awired.visuwall</groupId>
@@ -23,21 +22,11 @@
 	</parent>
 
 	<dependencies>
-
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>r09</version>
 		</dependency>
-
-		<!-- TODO remove when move Project and State -->
-		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-core-asl</artifactId>
-			<version>1.8.2</version>
-			<scope>provided</scope>
-		</dependency>
-
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -46,19 +35,4 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-
 </project>
