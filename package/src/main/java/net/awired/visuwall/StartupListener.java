@@ -1,34 +1,32 @@
 package net.awired.visuwall;
 
 import java.io.File;
-import javax.servlet.ServletContext;
+import java.io.IOException;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import net.awired.ajsl.core.io.FileUtils;
+import net.awired.ajsl.core.servlet.ContextUtils;
 import net.awired.bootstrap.karaf.KarafService;
 
 public final class StartupListener implements ServletContextListener {
+
+    private static final String KARAF_RESOURCE_HOME = "/WEB-INF/karaf";
 
     private KarafService service;
 
     @Override
     public void contextInitialized(ServletContextEvent event) {
-        ServletContext servletContext = event.getServletContext();
-        String rootString = servletContext.getRealPath("/WEB-INF/karaf");
-        File root = new File(rootString);
-        if (!root.exists()) {
-            throw new RuntimeException("Karaf root folder not found : " + rootString + ". If path is a context,"
-                    + " your servlet container do not unpack war. "
-                    + "Non unpacked wars servlet containers is currently not supported");
+        File tempDir = FileUtils.createTempDirectoryWithDeleteOnExit("karaf_home");
+        String karafRoot = tempDir + KARAF_RESOURCE_HOME;
+        try {
+            ContextUtils.servletContextResourceToFile(event.getServletContext(), KARAF_RESOURCE_HOME,
+                    tempDir.getAbsolutePath());
+        } catch (IOException e) {
+            throw new RuntimeException("Cannot copy karaf home resource to temp directory", e);
         }
-        this.service = new KarafService(root);
-        service.setServletContext(servletContext);
+        this.service = new KarafService(karafRoot);
+        service.setServletContext(event.getServletContext());
         this.service.start();
-
-        //        } catch (IOException e) {
-        //            throw new RuntimeException("Karaf root folder : '" + resource
-        //                    + "' is not a file, ");
-        //        }
-
     }
 
     @Override

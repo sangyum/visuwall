@@ -18,6 +18,9 @@ package net.awired.visuwall.cli;
 
 import java.io.File;
 import java.io.IOException;
+import net.awired.ajsl.core.io.FileUtils;
+import net.awired.ajsl.core.io.JarUtils;
+import net.awired.bootstrap.karaf.KarafService;
 import net.awired.visuwall.core.application.common.ApplicationHelper;
 import org.fusesource.jansi.AnsiConsole;
 import org.slf4j.Logger;
@@ -56,9 +59,33 @@ public class Main {
             System.exit(0);
         }
 
+        try {
+            KarafService karafService = new KarafService(getKarafRoot().getAbsolutePath());
+            karafService.start();
+        } catch (IOException e1) {
+            System.err.println("Cannot get Karaf root Folder");
+            e1.printStackTrace();
+        }
+
+        //
+        try {
+            while (true) {
+                Thread.sleep(1000);
+            }
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
-    public void cleanDB() {
+    private File getKarafRoot() throws IOException {
+        File war = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+        File karafRoot = FileUtils.createTempDirectoryWithDeleteOnExit("karaf_home");
+        JarUtils.unpackJarPart(war, karafRoot.getAbsolutePath(), "^WEB-INF/karaf/.*");
+        return new File(karafRoot.getAbsolutePath() + "/WEB-INF/karaf/");
+    }
+
+    private void cleanDB() {
         String home = ApplicationHelper.findHomeDir();
         try {
             System.out.println("clearing database in home folder : " + home);

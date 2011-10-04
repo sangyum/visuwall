@@ -26,10 +26,10 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.apache.felix</groupId>
-			<!-- org.apache.felix.http.bundle -->
-			<artifactId>org.apache.felix.http.jetty</artifactId>
-			<version>2.2.0</version>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.compendium</artifactId>
+			<version>4.2.0</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
