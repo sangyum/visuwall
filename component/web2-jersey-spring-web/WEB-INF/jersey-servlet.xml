@@ -14,27 +14,11 @@
            http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd
            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	
-	
 	    <ctx:component-scan base-package="com.sun.jersey.samples.springannotations"/>
     
-<!--     <aop:aspectj-autoproxy/> -->
-    
-    <bean id="securityAdvice" class="com.sun.jersey.samples.springannotations.resources.aop.SecurityAdvice" />
-    
-    <!-- The following beans are just defined here so that they are initialized somehow... -->
-    <bean id="item1" class="com.sun.jersey.samples.springannotations.model.Item" scope="prototype">
-        <property name="value" value="foo" />
-    </bean>
-    
-    <bean id="item2_1" class="com.sun.jersey.samples.springannotations.model.Item2" scope="prototype">
-        <qualifier value="1" />
-        <property name="value" value="bar" />
-    </bean>
-    
-    <bean id="item2_2" class="com.sun.jersey.samples.springannotations.model.Item2" scope="prototype">
-        <qualifier value="2" />
-        <property name="value" value="baz" />
-    </bean>
+        	<osgi:reference id="httpService" interface="org.osgi.service.http.HttpService" />
 	
-	
+	<bean class="jersey_osgi.rest.NumberResource"/>
+    
+    
 </beans>

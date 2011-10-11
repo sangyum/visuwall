@@ -13,7 +13,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<artifactId>visuwall-component-web2</artifactId>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>Visuwall - Component - Web2</name>
 
@@ -59,41 +59,6 @@
 			<version>2.5</version>
 			<scope>provided</scope>
 		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.osgi</groupId>
-			<artifactId>spring-osgi-core</artifactId>
-			<version>1.2.1</version>
-		</dependency>
-		
-		
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.context</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		
-
-
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjrt</artifactId>
-			<version>1.5.4</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjweaver</artifactId>
-			<version>1.5.4</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>cglib</groupId>
-			<artifactId>cglib</artifactId>
-			<version>2.2</version>
-			<scope>runtime</scope>
-		</dependency>
-
 	</dependencies>
 
 	<build>
@@ -103,30 +68,21 @@
 				<artifactId>maven-bundle-plugin</artifactId>
 				<configuration>
 					<instructions>
-						<Webapp-Context>visuwall</Webapp-Context>
-						<Web-ContextPath>visuwall</Web-ContextPath>
+
+
 						<Import-Package>
-							com.sun.jersey.spi.spring.container.servlet,
-							javax.servlet; version="[2.4.0, 4.0.0)",
-							javax.servlet.http;
-							version="[2.4.0, 4.0.0)",
-							javax.servlet.resources;
-							version="[2.4.0, 4.0.0)",
-							org.springframework.beans.factory.config,
-							org.springframework.osgi.web.context.support;
-							version="[1.2,2.0)",
-							org.springframework.stereotype,
-							org.springframework.web.bind.annotation,
-							org.springframework.web.servlet,
-							org.springframework.web.servlet.view,
-							org.springframework.context.config,
 							javax.ws.rs.core,
 							*
-						</Import-Package>
+					</Import-Package>
+						<!-- <Import-Package>com.sun.jersey.api.core,com.sun.jersey.spi.container.s -->
+						<!-- ervlet,javax.annotation,javax.servlet,javax.ws.rs,javax.ws.rs.core,or -->
+						<!-- g.osgi.framework;version="[1.5,2)",org.osgi.service.event;version="[1 -->
+						<!-- .2,2)",org.osgi.service.http;version="[1.2,2)",org.osgi.util.tracker; -->
+						<!-- version="[1.4,2)",org.springframework.beans.factory.annotation;versio -->
+						<!-- n="[3.0,4)",org.springframework.context.annotation;version="[3.0,4)", -->
+						<!-- org.springframework.stereotype;version="[3.0,4)",com.sun.jersey.spi.spring.container.servlet.SpringServlet</Import-Package> -->
 
-
-
-
+						<!-- <Import-Package> -->
 						<!-- javax.servlet; version="[2.4.0, 4.0.0)", -->
 						<!-- javax.servlet.http; version="[2.4.0, 4.0.0)", -->
 						<!-- javax.servlet.jsp.jstl.core; version="[1.2,2.0)", -->
@@ -137,6 +93,8 @@
 						<!-- org.springframework.web.bind.annotation, -->
 						<!-- org.springframework.web.servlet, -->
 						<!-- org.springframework.web.servlet.view, -->
+						<!-- * -->
+						<!-- </Import-Package> -->
 
 						<!-- <Bundle-Activator>net.awired.visuwall.web.Activator</Bundle-Activator> -->
 
