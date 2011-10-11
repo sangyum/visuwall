@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
-import javax.ws.rs.core.Application;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
@@ -22,14 +22,8 @@ public class SpringedJerseyServlet extends ServletContainer {
 
     private static final Logger LOGGER = Logger.getLogger(SpringedJerseyServlet.class.getName());
 
+    @Autowired
     private ApplicationContext context;
-
-    public SpringedJerseyServlet(Application application, ApplicationContext context) {
-        super(application);
-        this.context = context;
-    }
-
-    public static final String CONTEXT_CONFIG_LOCATION = "contextConfigLocation";
 
     @Override
     protected ResourceConfig getDefaultResourceConfig(Map<String, Object> props, WebConfig webConfig)
@@ -40,15 +34,10 @@ public class SpringedJerseyServlet extends ServletContainer {
     @Override
     protected void initiate(ResourceConfig rc, WebApplication wa) {
         try {
-            wa.initiate(rc, new SpringComponentProviderFactory(rc, getContext()));
+            wa.initiate(rc, new SpringComponentProviderFactory(rc, (ConfigurableApplicationContext) context));
         } catch (RuntimeException e) {
             LOGGER.log(Level.SEVERE, "Exception occurred when intialization", e);
             throw e;
         }
     }
-
-    protected ConfigurableApplicationContext getContext() {
-        return (ConfigurableApplicationContext) context;
-    }
-
 }

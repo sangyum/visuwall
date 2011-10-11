@@ -43,8 +43,9 @@ package net.awired.visuwall.web;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 @Path("status")
 public class StatusResource {
 

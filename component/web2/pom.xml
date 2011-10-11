@@ -68,36 +68,12 @@
 				<artifactId>maven-bundle-plugin</artifactId>
 				<configuration>
 					<instructions>
-
-
 						<Import-Package>
+							javax.servlet; version="[2.4.0, 4.0.0)",
+							javax.servlet.http; version="[2.4.0, 4.0.0)",
 							javax.ws.rs.core,
 							*
 					</Import-Package>
-						<!-- <Import-Package>com.sun.jersey.api.core,com.sun.jersey.spi.container.s -->
-						<!-- ervlet,javax.annotation,javax.servlet,javax.ws.rs,javax.ws.rs.core,or -->
-						<!-- g.osgi.framework;version="[1.5,2)",org.osgi.service.event;version="[1 -->
-						<!-- .2,2)",org.osgi.service.http;version="[1.2,2)",org.osgi.util.tracker; -->
-						<!-- version="[1.4,2)",org.springframework.beans.factory.annotation;versio -->
-						<!-- n="[3.0,4)",org.springframework.context.annotation;version="[3.0,4)", -->
-						<!-- org.springframework.stereotype;version="[3.0,4)",com.sun.jersey.spi.spring.container.servlet.SpringServlet</Import-Package> -->
-
-						<!-- <Import-Package> -->
-						<!-- javax.servlet; version="[2.4.0, 4.0.0)", -->
-						<!-- javax.servlet.http; version="[2.4.0, 4.0.0)", -->
-						<!-- javax.servlet.jsp.jstl.core; version="[1.2,2.0)", -->
-						<!-- javax.servlet.resources; version="[2.4.0, 4.0.0)", -->
-						<!-- org.springframework.beans.factory.config, -->
-						<!-- org.springframework.osgi.web.context.support; version="[1.2,2.0)", -->
-						<!-- org.springframework.stereotype, -->
-						<!-- org.springframework.web.bind.annotation, -->
-						<!-- org.springframework.web.servlet, -->
-						<!-- org.springframework.web.servlet.view, -->
-						<!-- * -->
-						<!-- </Import-Package> -->
-
-						<!-- <Bundle-Activator>net.awired.visuwall.web.Activator</Bundle-Activator> -->
-
 						<Bundle-ClassPath>
 							WEB-INF/classes,
 							.,
