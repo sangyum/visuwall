@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:ctx="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:osgix="http://www.springframework.org/schema/osgi-compendium"
+       xmlns:osgi="http://www.springframework.org/schema/osgi"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+           http://www.springframework.org/schema/osgi-compendium http://www.springframework.org/schema/osgi-compendium/spring-osgi-compendium.xsd
+           http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd
+           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	
+	
+	    <ctx:component-scan base-package="com.sun.jersey.samples.springannotations"/>
+    
+<!--     <aop:aspectj-autoproxy/> -->
+    
+    <bean id="securityAdvice" class="com.sun.jersey.samples.springannotations.resources.aop.SecurityAdvice" />
+    
+    <!-- The following beans are just defined here so that they are initialized somehow... -->
+    <bean id="item1" class="com.sun.jersey.samples.springannotations.model.Item" scope="prototype">
+        <property name="value" value="foo" />
+    </bean>
+    
+    <bean id="item2_1" class="com.sun.jersey.samples.springannotations.model.Item2" scope="prototype">
+        <qualifier value="1" />
+        <property name="value" value="bar" />
+    </bean>
+    
+    <bean id="item2_2" class="com.sun.jersey.samples.springannotations.model.Item2" scope="prototype">
+        <qualifier value="2" />
+        <property name="value" value="baz" />
+    </bean>
+</beans>

@@ -1,0 +1,51 @@
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+<!-- 	<context-param> -->
+<!-- 		<param-name>contextConfigLocation</param-name> -->
+<!-- 		<param-value>/META-INF/spring/jersey_osgi_spring.xml</param-value> -->
+<!-- 	</context-param> -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+
+	<servlet>
+		<servlet-name>spring-mvc-smx</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextClass</param-name>
+			<param-value>org.springframework.osgi.web.context.support.OsgiBundleXmlWebApplicationContext</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>		
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>spring-mvc-smx</servlet-name>
+		<url-pattern>/spring</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>jersey</servlet-name>
+		<servlet-class>com.sun.jersey.samples.springannotations.SpringJerseyServlet</servlet-class>
+<!-- 		 The following initialization parameter is only required for registering  -->
+<!-- 			Jersey managed classes. Spring-managed classes are automatically registered.  -->
+		<init-param>
+			<param-name>com.sun.jersey.config.property.packages</param-name>
+			<param-value>com.sun.jersey.samples.springannotations.resources.jerseymanaged</param-value>
+		</init-param>
+		<init-param>
+			<param-name>contextClass</param-name>
+			<param-value>org.springframework.osgi.web.context.support.OsgiBundleXmlWebApplicationContext</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>jersey</servlet-name>
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+
+
+</web-app>

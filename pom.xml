@@ -31,7 +31,8 @@
 		<module>component/domain</module>
 		<!-- <module>component/it</module> -->
 		<module>component/persistence</module>
-		<module>component/web</module>
+<!-- 		<module>component/web</module> -->
+		<module>component/web2</module>
 
 		<module>plugins/bamboo-plugin</module>
 		<module>plugins/hudson-plugin</module>
@@ -50,7 +51,7 @@
 		<client-bean-validation.version>0.1-SNAPSHOT</client-bean-validation.version>
 
 		<spring.version>3.0.5.RELEASE</spring.version>
-		<spring-security.version>3.0.5.RELEASE</spring-security.version>
+		<spring-security.version>3.0.6.RELEASE</spring-security.version>
 		<jackson.version>1.8.5</jackson.version>
 		<jetty.version>6.1.26</jetty.version>
 

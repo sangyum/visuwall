@@ -24,12 +24,6 @@
 		<relativePath>../../</relativePath>
 	</parent>
 
-
-	<properties>
-		<netbeans.hint.deploy.server>Tomcat70</netbeans.hint.deploy.server>
-		<bootstrap.version>1.0-SNAPSHOT</bootstrap.version>
-	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>net.awired.visuwall</groupId>
@@ -42,9 +36,16 @@
 
 		<dependency>
 			<groupId>net.awired.ajsl</groupId>
-			<artifactId>ajsl-web-java</artifactId>
+			<artifactId>ajsl-web</artifactId>
 			<version>${ajsl.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.compendium</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+
 
 		<!-- <dependency> -->
 		<!-- <groupId>net.awired.client-bean-validation</groupId> -->
@@ -138,5 +139,35 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<packagingExcludes>WEB-INF/lib/*.jar</packagingExcludes>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<configuration>
+					<instructions>
+						<Webapp-Context>visuwall</Webapp-Context>
+						<Web-ContextPath>visuwall</Web-ContextPath>
+						<Bundle-ClassPath>
+							WEB-INF/classes,
+							.,
+							target/classes
+						</Bundle-ClassPath>
+					</instructions>
+				</configuration>
+			</plugin>
+
+
+		</plugins>
+	</build>
 
 </project>
