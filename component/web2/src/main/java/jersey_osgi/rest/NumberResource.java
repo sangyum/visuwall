@@ -4,6 +4,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import net.awired.ajsl.web.service.JsService;
 import org.osgi.service.http.HttpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -17,6 +18,9 @@ public class NumberResource {
     @Autowired
     HttpService httpService;
 
+    @Autowired
+    JsService jsService;
+
     public NumberResource() {
         System.out.println("GENRE");
     }
@@ -24,6 +28,12 @@ public class NumberResource {
     @GET
     @Produces("text/xml")
     public String listNumbers() {
+        try {
+            jsService.getJsLinks(null);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         StringBuilder sb = new StringBuilder();
 
         sb.append("<!-- Guess the right number! The following numbers are available. -->");
